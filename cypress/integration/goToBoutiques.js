@@ -6,13 +6,13 @@ const data = require('../fixtures/data.json')
 const indexPage = new IndexPage()
 const boutiquesPage = new BoutiquesPage()
 
-describe("Add product to cart form home page", () => {
+describe("Viszit Website, inputs adress and gets boutiques page", () => {
     before(() => {
         cy.visit("https://www.mavillemonshopping.fr/fr");
         cy.setCookie("policy_rule_cookie", "accepted").should('have.property', 'value', 'accepted');
     });
 
-    it("should type an address", () => {
+    it("should input an address", () => {
         cy.get(indexPage.searchAddressInput)
             .type(data.address)
             .should("have.value", data.address);

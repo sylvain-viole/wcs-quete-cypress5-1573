@@ -1,4 +1,12 @@
 {
     "baseUrl": "https://www.decathlon.fr/",
-    "watchForFileChanges": false
+    "watchForFileChanges": false,
+
+    "reporter": "mochawesome",
+    "reporterOptions": {
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "html": false,
+        "json": true
+    }
 }
