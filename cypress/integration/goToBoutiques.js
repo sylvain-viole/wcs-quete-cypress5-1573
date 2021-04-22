@@ -6,7 +6,7 @@ const data = require('../fixtures/data.json')
 const indexPage = new IndexPage()
 const boutiquesPage = new BoutiquesPage()
 
-describe("Viszit Website, inputs adress and gets boutiques page", () => {
+describe("Visit Website, inputs adress and gets boutiques page", () => {
     before(() => {
         cy.visit("https://www.mavillemonshopping.fr/fr");
         cy.setCookie("policy_rule_cookie", "accepted").should('have.property', 'value', 'accepted');

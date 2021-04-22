@@ -1,7 +1,8 @@
 {
     "baseUrl": "https://www.decathlon.fr/",
     "watchForFileChanges": false,
-
+    "defaultCommandTimeout": 10000,
+    "pageLoadTiemout": 10000,
     "reporter": "mochawesome",
     "reporterOptions": {
         "reportDir": "cypress/results",
