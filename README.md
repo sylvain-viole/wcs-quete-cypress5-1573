@@ -17,8 +17,6 @@ This repo hosts cypress Tests report training on mavillemonshopping.com
     addContext({ test }, imageUrl);
 });
 ```
-### Screenshot of result
-
 
 ### How To :
 
@@ -28,6 +26,10 @@ cd wcs-quete-cypress5-1573
 npm install
 npm run cy:run
 ```
+
+### Screenshot of result
+![Capture d’écran 2021-04-23 à 06 19 58](https://user-images.githubusercontent.com/71819292/115818148-73834180-a3fc-11eb-9fc7-3066219482af.png)
+
 
 CHEERS !
 
