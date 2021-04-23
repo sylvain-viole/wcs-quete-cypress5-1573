@@ -1,8 +1,9 @@
 {
-    "baseUrl": "https://www.decathlon.fr/",
+    "baseUrl": "https://www.mavillemonshopping.fr/fr",
     "watchForFileChanges": false,
     "defaultCommandTimeout": 10000,
     "pageLoadTiemout": 10000,
+    "video": false,
     "reporter": "mochawesome",
     "reporterOptions": {
         "reportDir": "cypress/results",

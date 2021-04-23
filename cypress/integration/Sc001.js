@@ -2,17 +2,23 @@
 
 import IndexPage from "../POM/IndexPage"
 import BoutiquesPage from "../POM/BoutiquesPage"
+
+const addContext = require('mochawesome/addContext.js')
+
 const data = require('../fixtures/data.json')
 const indexPage = new IndexPage()
 const boutiquesPage = new BoutiquesPage()
 
-describe("Visit Website, inputs adress and gets boutiques page", () => {
+describe("[Sc001] from homepage to Boutiques page", () => {
+
+    
     before(() => {
-        cy.visit("https://www.mavillemonshopping.fr/fr");
+        addContext(this, 'TEST STRING');
+        cy.visit("/");
         cy.setCookie("policy_rule_cookie", "accepted").should('have.property', 'value', 'accepted');
     });
 
-    it("should input an address", () => {
+    it("[St001] Should input an address", () => {
         cy.get(indexPage.searchAddressInput)
             .type(data.address)
             .should("have.value", data.address);
@@ -24,19 +30,22 @@ describe("Visit Website, inputs adress and gets boutiques page", () => {
         cy.get(indexPage.addressResultUl).should('be.visible')
             .children('li').eq(0).should('contain.text', data.address)
             .click()
+        cy.screenshot("[St001]", {capture: 'viewport'});
         cy.get(indexPage.searchAddressInput).type("{enter}");
     });
 
-    it("should be redirected to boutique page", () => {
-        cy.url().should('eq', data.expected.boutiqueUrl)
-    })
+    it("[St002] Should be redirected to boutique page", () => {
+        cy.url().should("eq", data.expected.boutiqueUrl);
+    });
 
-    it('Page should have correct address and title', () => {
+    it("[St003] Page should have expected address and title", () => {
         cy.get(boutiquesPage.addressBtn).should("contain.text", data.address);
-        cy.get('h2').eq(0).should('have.text', data.expected.titleCity);
-    })
+        cy.get("h2").eq(0).should("have.text", data.expected.titleCity);
+        cy.screenshot("[St003]", {capture: 'viewport'});
+    });
 
-    after(() => {
+    afterEach(() => {
+        addContext(this, "cypress/screenshots/Sc001.js/[St001].png");
     })
 
 

@@ -4,3 +4,4 @@ cypress/videos
 cypress/screenshots
 cypress/results
 mochawesome.json
+.DS_Store

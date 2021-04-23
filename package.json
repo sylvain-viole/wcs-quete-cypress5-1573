@@ -6,7 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "cy:open": "cypress open",
-    "cy:run": "cypress run"
+    "report:clean": "rimraf mochawesome-report cypress/results mochawesome.json cypress/screenshots",
+    "cy:run": "cypress run --reporter mochawesome",
+    "report:generate": "npx mochawesome-merge 'cypress/results/*.json' > mochawesome.json && npx marge -p mvms-test-report -f mvms-goToBoutiques-test-result --timestamp isoDateTime cypress/results/mochawesome.json  && npm run report:copyScreenshots",
+    "cy:run:report": "npm run report:clean && npm run cy:run && npm run report:generate",
+    "report:copyScreenshots": "mkdir mochawesome-report/screenshots && cp -r cypress/screenshots mochawesome-report"
   },
   "repository": {
     "type": "git",
