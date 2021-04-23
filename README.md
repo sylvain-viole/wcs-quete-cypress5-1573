@@ -11,7 +11,8 @@ This repo hosts cypress Tests report training on mavillemonshopping.com
 +
 
 - Context option to include screenshots to report :
-```Cypress.on("test:after:run", (test, runnable) => {
+```
+Cypress.on("test:after:run", (test, runnable) => {
     const imageUrl = `./screenshots/${Cypress.spec.name}/${runnable.title.substr(0,7)}.png`;
 
     addContext({ test }, imageUrl);
